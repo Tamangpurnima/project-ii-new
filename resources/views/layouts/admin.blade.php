@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 </head>
@@ -19,34 +18,33 @@
           <img src="/logo.jpg" alt="">
           <span class="nav-item">DashBoard</span>
         </a></li>
-
-        <li><a href="#">
-          <i class="fas fa-home"></i>
-          <span class="nav-item">Home</span>
-        </a></li>
-        <li><a href="">
+        <li><a href="/admin/edit-profile">
           <i class="fas fa-user"></i>
-          <span class="nav-item">Profile</span>
+          <span class="nav-item">Edit Profile</span>
         </a></li>
-        <li><a href="/course/show">
-          <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Manage CourseType</span>
-        </a></li>
-        <li><a href="/college/show">
+        <li><a href="/admin/college/show">
           <i class="fas fa-question-circle"></i>
           <span class="nav-item">Manage College</span>
         </a></li>
-        <li><a href="/coursedetail/show">
+        <li><a href="/admin/student/show">
+          <i class="fas fa-question-circle"></i>
+          <span class="nav-item">Manage Students</span>
+        </a></li>
+        <li><a href="/admin/course/show">
+          <i class="fas fa-question-circle"></i>
+          <span class="nav-item">View Courses</span>
+        </a></li>
+        <li><a href="/admin/course-detail/show">
           <i class="fas fa-question-circle"></i>
           <span class="nav-item">Manage Course Detail</span>
         </a></li>
-        <li><a href="/qualification/show">
+        <li><a href="/admin/contact/show">
           <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Manage Qualification</span>
+          <span class="nav-item">View Contact</span>
         </a></li>
-        <li><a href="/student/show">
+        <li><a href="/admin/inquiry/show">
           <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Manage Student</span>
+          <span class="nav-item">View Inquiry</span>
         </a></li>
         <li><a href="" class="logout">
           <i class="fas fa-sign-out-alt"></i>
@@ -54,7 +52,6 @@
         </a></li>
       </ul>
     </nav>
-
     <section class="main">
       @yield('content')
     </section>

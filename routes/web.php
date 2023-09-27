@@ -31,7 +31,6 @@ Route::middleware(['middleware'=>'PreventBackHistory'])->group(function () {
 });
 
 
-
 //Navbar-DropDown
 Route::get('/', function () {
     return view('home.index');
@@ -54,7 +53,21 @@ Route::get('/contact', function () {
 Route::get('/college-signup', function () {
     return view('home.collegeSignUP');
 });
-
+Route::get('/view/colleges', function () {
+    return view('home.viewCourse');
+});
+Route::get('/view/courses/colleges', function () {
+    return view('home.viewCourseCollege');
+});
+Route::get('/view/course-detail', function () {
+    return view('home.viewCollegeCourseDetail');
+});
+Route::get('/inquiry', function () {
+    return view('home.inquiry');
+});
+Route::get('/college/detail', function () {
+    return view('home.collegeDetail');
+});
 
 
 
@@ -86,9 +99,9 @@ Route::get('/', function () {
 Route::get('/college/create', [CollegeController::class, 'create'])->name('college.create');
 Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
 Route::get('/college/show', [CollegeController::class, 'show'])->name('college.show');
-Route::get('/college', function(){
-    return view('home.collegeSignUP');
-});
+// Route::get('/college', function(){
+//     return view('home.collegeSignUP');
+// });
 
 Route::get('/collegesignupshow', function(){
     return view('home.collegeSignUP');
@@ -107,13 +120,39 @@ Route::get('/coursedetail/delete/{id}', [CourseDetailController::class, 'destroy
 Route::get('/coursedetail/edit/{id}',[CourseDetailController::class,'edit']);
 Route::post('/coursedetail/update/{id}', [CourseDetailController::class, 'update'])->name('coursedetail.update');
 
+
+//routing for admin
 Route::get('/dashboard', function(){
     return view('admin.dashboard');
 });
+Route::get('/admin/college/show', function(){
+    return view('admin.collegeshow');
+});
+Route::get('/admin/student/show', function(){
+    return view('admin.studentshow');
+});
+Route::get('/admin/course/show', function(){
+    return view('admin.courseshow');
+});
+Route::get('/admin/course-detail/show', [CourseDetailController::class, 'show'])->name('coursedetail.show');
+Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/admin/inquiry/show', function(){
+    return view('admin.inquiryshow');
+});
+Route::get('/admin/edit-profile', function(){
+    return view('admin.editProfile');
+});
 
 
-//college routing
-Route::get('/collegedashboard', function(){
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/contact/update-status/{id}', [ContactController::class, 'updateStatus'])->name('contact.updateStatus');
+Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+
+//routing for college admin
+Route::get('/college/dashboard', function(){
     return view('college.dashboard');
 });
 Route::get('/college/edit-profile', function(){
@@ -122,20 +161,13 @@ Route::get('/college/edit-profile', function(){
 Route::get('/college/view-inquiry', function(){
     return view('college.inquiry');
 });
-Route::get('/college/view-student', function(){
-    return view('college.student');
-});
-Route::get('/college/coursedetailshow', [CourseDetailController::class, 'show'])->name('coursedetail.show');
+Route::get('/college/course-detail', [CourseDetailController::class, 'showForCollege'])->name('coursedetail.show');
 
 Route::get('/college/logout', function(){
     return view('college.logout');
 });
 
 
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
-Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
-Route::get('/contact/update-status/{id}', [ContactController::class, 'updateStatus'])->name('contact.updateStatus');
-Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 
 

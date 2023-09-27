@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <head>
-<title>Course - Courses</title>
+<title>Course -college</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Course Project">
@@ -13,45 +13,32 @@
 </head>
 
 <div class="super_container">
-	
-	<!-- Home -->
-
-	<div class="home">
-		<div class="home_background_container prlx_parent">
-			<div class="home_background prlx" style="background-image:url(images/courses_background.jpg)"></div>
-		</div>
-		<div class="home_content">
-			<h1>Courses</h1>
-		</div>
-	</div>
-
-	<!-- Popular -->
 
 	<div class="popular page_section">
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="section_title text-center">
-						<h1>Popular Courses</h1>
+						<h1>Colleges</h1>
 					</div>
 				</div>
 			</div>
 
 			<div class="row course_boxes">
-				
+
 				<!-- Popular Course Item -->
 				<div class="col-lg-4 course_box">
 					<div class="card">
-						<br/>
+						<img class="card-img-top" src="images/college_logo">
 						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Course Name</a></div>
-							<div class="card-text">Stream, substream</div>
+							<div class="card-title"><a href="courses.html">College Name</a></div>
+							<div class="card-text">Address</div>
 						</div>
 						<br/>
 						<div class="d-flex justify-content-center">
-							<a href="/view/colleges">
-							<button class="btn btn-primary">View</button>
-							</a>
+                            <a href="/view/course-detail">
+							    <button class="btn btn-primary">View</button>
+                            </a>
 						</div>
 						<br/>
 					</div>
@@ -59,10 +46,10 @@
 
 				<div class="col-lg-4 course_box">
 					<div class="card">
-						<br/>
+						<img class="card-img-top" src="images/college_logo">
 						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Course Name</a></div>
-							<div class="card-text">Stream, substream</div>
+							<div class="card-title"><a href="courses.html">College Name</a></div>
+							<div class="card-text">Address</div>
 						</div>
 						<br/>
 						<div class="d-flex justify-content-center">
@@ -71,10 +58,17 @@
 						<br/>
 					</div>
 				</div>
-				
+
+
 			</div>
 		</div>		
 	</div>
+
+	<br/>
+	<br/>
+
+	
+
 </div>
 
 <script src="{{asset('home/js/jquery-3.2.1.min.js')}}"></script>
@@ -88,5 +82,4 @@
 <script src="{{asset('home/plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
 <script src="{{asset('home/plugins/easing/easing.js')}}"></script>
 <script src="{{asset('home/js/courses_custom.js')}}"></script>
-
-@endsection
+@endsection 

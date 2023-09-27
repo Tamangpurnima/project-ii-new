@@ -19,24 +19,20 @@
         </a></li>
 
         <li><a href="/college/edit-profile">
-          <i class="fas fa-home"></i>
+          <i class="fas fa-user"></i>
           <span class="nav-item">Edit Profile</span>
         </a></li>
-        <li><a href="/college/coursedetailshow">
+        <li><a href="/college/course-detail">
           <i class="fas fa-user"></i>
-          <span class="nav-item">View Course</span>
+          <span class="nav-item">Manage Course</span>
         </a></li>
         <li><a href="/college/view-inquiry">
           <i class="fas fa-question-circle"></i>
-          <span class="nav-item">View Inquiry</span>
+          <span class="nav-item">Manage Inquiry</span>
         </a></li>
-        <li><a href="/college/view-student">
-          <i class="fas fa-question-circle"></i>
-          <span class="nav-item">View Students</span>
-        </a></li>
-        <li><a href="/college/logout">
-          <i class="fas fa-question-circle"></i>
-          <span class="nav-item">Logout</span>
+        <li><a href="/college/logout" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
         </a></li>
       </ul>
     </nav>

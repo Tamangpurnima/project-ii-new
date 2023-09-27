@@ -50,6 +50,12 @@ use Illuminate\Http\Request;
         return view('home.coursedetailshow',['courseDetails'=>$courseDetails]);
     }
 
+    public function showForCollege(CourseDetail $courseDetail)
+    {
+        $courseDetails=CourseDetail::all();
+        return view('college.coursedetailshow',['courseDetails'=>$courseDetails]);
+    }
+
 
     /**
      * Show the form for editing the specified resource.
