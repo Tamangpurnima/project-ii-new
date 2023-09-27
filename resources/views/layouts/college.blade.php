@@ -22,7 +22,7 @@
           <i class="fas fa-home"></i>
           <span class="nav-item">Edit Profile</span>
         </a></li>
-        <li><a href="college/coursedetail/show">
+        <li><a href="/college/coursedetailshow">
           <i class="fas fa-user"></i>
           <span class="nav-item">View Course</span>
         </a></li>

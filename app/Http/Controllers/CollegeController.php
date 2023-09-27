@@ -69,5 +69,10 @@ public function store(Request $request)
 
     return redirect()->route('home')->with('success', 'College registered successfully!');
 }
+public function show(College $college)
+    {
+        $college=College::all();
+        return view('home.collegesignupshow',['college'=>$college]);
+    }
 
 }

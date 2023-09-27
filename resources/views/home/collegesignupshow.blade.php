@@ -2,35 +2,44 @@
 @section('content')
 
 <div class="container">
-    <h2>College Details</h2>
+    <h2 class="text-center">College Details</h2>
+    <!-- <div class="container"> -->
+        <!-- create button here-->
+        <!-- <a href="/college/show"><button type="button" class="btn btn-success">+ Create</button></a> -->
+    <!-- </div> -->
+    <div class="container">
+    <table class="table table-bordered shadow text-center table-stripped">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Password</th>
+                <th>Contact</th>
+                <th>Description</th>
+                <th>Logo</th>
+                <th>Gallery</th>
+                <th>Delete</th>
+                <th>Edit</th>
 
-    <div class="row">
-        <div class="col-md-6">
-            <h3>{{ $college->name }}</h3>
-            <p><strong>Email:</strong> {{ $college->email }}</p>
-            <p><strong>Phone:</strong> {{ $college->phone }}</p>
-            <p><strong>Contact:</strong> {{ $college->contact }}</p>
-            <p><strong>Description:</strong> {{ $college->description }}</p>
+            </tr>
+            @foreach($college as $college)
+            <tr>
+                <td>{{$college->name}}</td>
+                <td>{{$college->email}}</td>
+                <td>{{$college->address}}</td>
+                <td>{{$college->password}}</td>
+                <td>{{$college->contact}}</td>
+                <td>{{$college->description}}</td>
+                <td>{{$college->logo}}</td>
+                <td>{{$college->gallery}}</td>
+                <td><a href="/college/delete/{{$college->id}}" class="btn btn-danger">DELETE</a></td>
+                <td><a href="/college/edit/{{$college->id}}" class="btn btn-success">EDIT</a></td>
 
-            <h4>Logo:</h4>
-            @if($college->logo)
-                <img src="{{ asset('storage/' . $college->logo) }}" alt="{{ $college->name }} Logo" style="max-width: 200px;">
-            @else
-                <p>No logo uploaded</p>
-            @endif
-        </div>
+            </tr>
+            @endforeach
+        </table>
     </div>
-
-    <h4>Gallery Images:</h4>
-    <div class="row">
-        @forelse($college->images as $image)
-            <div class="col-md-3">
-                <img src="{{ asset('storage/' . $image->path) }}" alt="{{ $college->name }} Image" class="img-thumbnail">
-            </div>
-        @empty
-            <p>No gallery images available</p>
-        @endforelse
-    </div>
+    </div>   
 </div>
 
 @endsection

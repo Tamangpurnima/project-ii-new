@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CourseDetailController;
+use App\Http\Controllers\ContactController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -81,8 +82,19 @@ Route::get('/', function () {
     return view('home.index');
 })->name('home');
 
+
 Route::get('/college/create', [CollegeController::class, 'create'])->name('college.create');
 Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
+Route::get('/college/show', [CollegeController::class, 'show'])->name('college.show');
+Route::get('/college', function(){
+    return view('home.collegeSignUP');
+});
+
+Route::get('/collegesignupshow', function(){
+    return view('home.collegeSignUP');
+});
+
+
 
 //CourseDetail
 Route::get('/coursedetail', function(){
@@ -113,13 +125,17 @@ Route::get('/college/view-inquiry', function(){
 Route::get('/college/view-student', function(){
     return view('college.student');
 });
-Route::get('/college/coursedetail/show', function(){
-    return view('home.coursedetail/show');
-});
+Route::get('/college/coursedetailshow', [CourseDetailController::class, 'show'])->name('coursedetail.show');
+
 Route::get('/college/logout', function(){
     return view('college.logout');
 });
 
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/contact/update-status/{id}', [ContactController::class, 'updateStatus'])->name('contact.updateStatus');
+Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
 
 
 
