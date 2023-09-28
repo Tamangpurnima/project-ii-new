@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CourseDetailController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CourseController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -38,9 +39,6 @@ Route::get('/', function () {
 Route::get('/recommend', function () {
     return view('home.recommend');
 });
-Route::get('/courses', function () {
-    return view('home.courses');
-});
 Route::get('/college', function () {
     return view('home.college');
 });
@@ -69,6 +67,17 @@ Route::get('/college/detail', function () {
     return view('home.collegeDetail');
 });
 
+Route::get('/view/colleges', function () {
+    return view('home.viewCourse');
+});
+
+Route::get('/courses', function () {
+    return view('home.courses');
+});
+
+Route::get('/courses', [CourseController::class, 'showForStudent'])->name('course.showForStudent');
+Route::get('/view/course/description/{id}', [CourseController::class, 'getByIdforStudent'])->name('course.getByIdforStudent');
+
 
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHistory']], function(){
@@ -91,10 +100,10 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth','PreventBackHisto
 });
 
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+Route::get('/students/show', [StudentController::class, 'show'])->name('students.show');
 Route::get('/', function () {
     return view('home.index');
 })->name('home');
-
 
 Route::get('/college/create', [CollegeController::class, 'create'])->name('college.create');
 Route::post('/college/store', [CollegeController::class, 'store'])->name('college.store');
@@ -134,14 +143,20 @@ Route::get('/admin/student/show', function(){
 Route::get('/admin/course/show', function(){
     return view('admin.courseshow');
 });
-Route::get('/admin/course-detail/show', [CourseDetailController::class, 'show'])->name('coursedetail.show');
-Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
 Route::get('/admin/inquiry/show', function(){
     return view('admin.inquiryshow');
 });
 Route::get('/admin/edit-profile', function(){
     return view('admin.editProfile');
 });
+Route::get('/admin/course-detail/show', [CourseDetailController::class, 'show'])->name('coursedetail.show');
+Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
+Route::get('/admin/college/show', [CollegeController::class, 'show'])->name('college.show');
+Route::get('/admin/student/show', [StudentController::class, 'show'])->name('students.show');
+Route::get('/admin/course/show', [CourseController::class, 'show'])->name('course.show');
+Route::get('/admin/course/view/{id}', [CourseController::class, 'getById'])->name('course.getById');
+
+
 
 
 
@@ -149,6 +164,8 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 Route::get('/admin/contact/show', [ContactController::class, 'show'])->name('contact.show');
 Route::get('/contact/update-status/{id}', [ContactController::class, 'updateStatus'])->name('contact.updateStatus');
 Route::get('/contact/delete/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+
 
 
 //routing for college admin
@@ -166,6 +183,17 @@ Route::get('/college/course-detail', [CourseDetailController::class, 'showForCol
 Route::get('/college/logout', function(){
     return view('college.logout');
 });
+
+Route::get('/inquiry', function(){
+    return view('home.inquiry');
+});
+
+Route::get('/college/inquiry/givedate', function(){
+    return view('college.inquirygivedate');
+});
+// Route::get('/admin/course/view', function(){
+//     return view('admin.viewcourse');
+// });
 
 
 

@@ -38,40 +38,24 @@
 			</div>
 
 			<div class="row course_boxes">
-				
-				<!-- Popular Course Item -->
-				<div class="col-lg-4 course_box">
+				@foreach($course as $course)
+				<div class="col-lg-4 course_box border border-2">
 					<div class="card">
 						<br/>
 						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Course Name</a></div>
-							<div class="card-text">Stream, substream</div>
+							<div class="card-title"><a href="courses.html">{{$course->name}}</a></div>
+							<div class="card-text">{{$course->stream}}, {{$course->subStream}}</div>
 						</div>
 						<br/>
 						<div class="d-flex justify-content-center">
-							<a href="/view/colleges">
-							<button class="btn btn-primary">View</button>
+							<a href="/view/course/description/{{$course->id}}">
+								<button class="btn btn-primary">View</button>
 							</a>
 						</div>
 						<br/>
 					</div>
 				</div>
-
-				<div class="col-lg-4 course_box">
-					<div class="card">
-						<br/>
-						<div class="card-body text-center">
-							<div class="card-title"><a href="courses.html">Course Name</a></div>
-							<div class="card-text">Stream, substream</div>
-						</div>
-						<br/>
-						<div class="d-flex justify-content-center">
-							<button class="btn btn-primary">View</button>
-						</div>
-						<br/>
-					</div>
-				</div>
-				
+				@endforeach				
 			</div>
 		</div>		
 	</div>

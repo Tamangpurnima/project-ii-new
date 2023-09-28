@@ -72,7 +72,7 @@ public function store(Request $request)
 public function show(College $college)
     {
         $college=College::all();
-        return view('home.collegesignupshow',['college'=>$college]);
+        return view('admin.collegeshow',['college'=>$college]);
     }
 
 }

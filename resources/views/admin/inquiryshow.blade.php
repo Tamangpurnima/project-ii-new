@@ -2,5 +2,10 @@
 @section('content')
 <div class="container">
     this is inquiry show page
+    <a href="/college/inquiry/givedate">
+
+    <button>Give Date</button>
+
+    </a>
 </div>
 @endsection
